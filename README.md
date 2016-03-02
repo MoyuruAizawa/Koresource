@@ -1,7 +1,7 @@
 # Koresource
 Classes and Extension Functions for Kotlin Delegated Property to get Android Resources(string, dimen, integer, drawable....).
 Extension Functions are available on subclasses of Activity , Fragment, SupportFragment and ArrayAdapter.
-```
+```kotlin
 class MainActivity : AppCompatActivity() {
     val sampleString: String by stringResource(R.string.sample_string)
     val sampleInteger: Int by integerResource(R.integer.sample_integer)
@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 ```
 
 # Installation
-```
+```groovy
 repositories {
     maven {
         url "http://dl.bintray.com/lvla/maven"
