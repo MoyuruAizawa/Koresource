@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sample_string">test</string>
+    <bool name="sample_bool">true</bool>
+    <color name="sample_color">#FFFFFF</color>
+    <dimen name="sample_dimen">128dp</dimen>
+    <integer name="sample_integer">256</integer>
+    <integer-array name="sample_integer_array">
+        <item>2</item>
+        <item>4</item>
+    </integer-array>
+    <array name="sample_color_array">
+        <item>#FF0000</item>
+        <item>#00FF00</item>
+        <item>#0000FF</item>
+    </array>
+</resources>
