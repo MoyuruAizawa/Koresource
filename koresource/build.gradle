@@ -1,5 +1,9 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'com.novoda.bintray-release'
+
+final VERSION_CODE = 1
+final VERSION_NAME = "1.0.0"
 
 android {
     compileSdkVersion 23
@@ -8,8 +12,8 @@ android {
     defaultConfig {
         minSdkVersion 11
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        versionCode VERSION_CODE
+        versionName VERSION_NAME
     }
     buildTypes {
         release {
@@ -42,14 +46,15 @@ buildscript {
 repositories {
     mavenCentral()
 }
-def JAR_NAME = "koresource.jar"
-task clearJar(type: Delete) {
-    delete "build/libs/$JAR_NAME"
+publish {
+    userOrg = 'lvla'
+    groupId = 'com.lvla.android'
+    artifactId = 'koresource'
+    publishVersion = VERSION_NAME
+    desc = "for Kotlin Delegated Property to get resources"
+    website = 'https://github.com/lvla/Koresource'
 }
-task makeJar(type: Copy) {
-    from('build/intermediates/bundles/release/')
-    into('release/')
-    include('classes.jar')
-    rename('classes.jar', JAR_NAME)
+
+afterEvaluate {
+    tasks.findByPath(":koresource:mavenAndroidJavadocs").enabled = false
 }
-makeJar.dependsOn(clearJar, build)
