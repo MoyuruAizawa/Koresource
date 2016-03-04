@@ -18,12 +18,6 @@ class MainActivity : AppCompatActivity() {
 
 # Installation
 ```groovy
-repositories {
-    maven {
-        url "http://dl.bintray.com/lvla/maven"
-    }
-}
-
 dependencies {
     compile 'com.lvla.android:koresource:0.1.1'
 }
