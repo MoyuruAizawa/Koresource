@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
     val sampleBoolean: Boolean by boolResource(R.bool.sample_bool)
     val sampleColorInt: Int by colorIntResource(R.color.sample_color)
     val sampleDimen: Float by dimenResource(R.dimen.sample_dimen)
-    val sampleDrawable: Drawable by drawableResource(R.drawable.abc_ic_menu_share_material)
+    val sampleDrawable: Drawable by drawableResource(R.drawable.abc_ab_share_pack_mtrl_alpha)
     val sampleIntegerArray: IntArray by integerArrayResource(R.array.sample_integer_array)
     val sampleTypedArray: TypedArray by typedArrayResource(R.array.sample_color_array)
     val sampleAnim: Animation by animResource(R.anim.abc_fade_in)

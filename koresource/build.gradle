@@ -42,6 +42,7 @@ buildscript {
 }
 repositories {
     mavenCentral()
+    maven { url 'http://dl.bintray.com/ngsw-taro/maven' }
 }
 publish {
     userOrg = 'lvla'

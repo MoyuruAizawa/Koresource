@@ -1,20 +1,19 @@
-package com.lvla.android.koresource
+package com.lvla.android.sample
 
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.os.Build
+import android.support.v4.content.res.ResourcesCompat
+import com.lvla.android.koresource.*
+import com.taroid.knit.should
 import org.junit.Test
 
-import org.junit.Assert.*
 import org.junit.runner.RunWith
-import org.robolectric.RobolectricGradleTestRunner
+import org.robolectric.RobolectricTestRunner
 import org.robolectric.RuntimeEnvironment
 import org.robolectric.annotation.Config
 
-/**
- * To work on unit tests, switch the Test Artifact in the Build Variants view.
- */
-@RunWith(RobolectricGradleTestRunner::class)
+@RunWith(RobolectricTestRunner::class)
 @Config(constants = BuildConfig::class, sdk = intArrayOf(Build.VERSION_CODES.LOLLIPOP))
 class ResourceTest {
     val context: Context = RuntimeEnvironment.application
@@ -24,40 +23,40 @@ class ResourceTest {
     val integerArrayResource: IntArray by IntegerArrayDelegation(context, R.array.testIntegerArray)
     val integerResource: Int by IntegerDelegation(context, R.integer.testInteger)
     val stringResource: String by StringDelegation(context, R.string.testString)
-    val drawableResource: Drawable by DrawableDelegation(context, R.drawable.notification_template_icon_bg)
+    val drawableResource: Drawable by DrawableDelegation(context, R.drawable.abc_ab_share_pack_mtrl_alpha)
 
     @Test
     fun testBoolResource() {
-        assertEquals(boolResource, context.resources.getBoolean(R.bool.testBool))
+        boolResource.should be context.resources.getBoolean(R.bool.testBool)
     }
 
     @Test
     fun testColorIntResource() {
-        assertEquals(colorIntResource, context.resources.getColor(R.color.testColor))
+        colorIntResource.should be ResourcesCompat.getColor(context.resources, R.color.testColor, null)
     }
 
     @Test
     fun testDimenResource() {
-        assertEquals(dimenResource, context.resources.getDimension(R.dimen.testDimen))
+        dimenResource.should be context.resources.getDimension(R.dimen.testDimen)
     }
 
     @Test
     fun testIntegerArrayResource() {
-        assertArrayEquals(integerArrayResource, context.resources.getIntArray(R.array.testIntegerArray))
+        integerArrayResource.should be context.resources.getIntArray(R.array.testIntegerArray)
     }
 
     @Test
     fun testIntegerResource() {
-        assertEquals(integerResource, context.resources.getInteger(R.integer.testInteger))
+        integerResource.should be context.resources.getInteger(R.integer.testInteger)
     }
 
     @Test
     fun testStringResource() {
-        assertEquals(stringResource, context.getString(R.string.testString))
+        stringResource.should be context.getString(R.string.testString)
     }
 
     @Test
     fun testDrawableResource() {
-        assertEquals(drawableResource, context.getDrawable(R.drawable.notification_template_icon_bg))
+        drawableResource.should be ResourcesCompat.getDrawable(context.resources, R.drawable.abc_ab_share_pack_mtrl_alpha, null)!!
     }
 }
